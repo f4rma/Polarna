@@ -250,21 +250,7 @@ class _SeverityBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isNew && severity == 'critical') {
-      return const AppStatusBadge(
-        label: 'BARU',
-        color: AppColors.error,
-        bgColor: AppColors.errorSoft,
-      );
-    }
-    if (severity == 'warning') {
-      return const AppStatusBadge(
-        label: 'WARNING',
-        color: AppColors.warning,
-        bgColor: AppColors.warningSoft,
-      );
-    }
-    // Recovery or resolved — no badge needed.
+    // No badge for UMKM/Mitra notification view
     return const SizedBox.shrink();
   }
 }

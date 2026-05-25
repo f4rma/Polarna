@@ -53,8 +53,6 @@ class MitraDashboardPage extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: AppSpacing.lg),
-              const DashboardIoTStatusBar(),
               const SizedBox(height: AppSpacing.xxl),
               _ActiveTransactionsSection(
                 transactionsAsync: transactionsAsync,

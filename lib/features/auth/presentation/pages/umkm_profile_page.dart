@@ -125,6 +125,7 @@ class _ProfileHeader extends StatelessWidget {
           label: 'UMKM',
           color: AppColors.primary,
           bgColor: AppColors.infoSoft,
+          outlined: true,
         ),
       ],
     );

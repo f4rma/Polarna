@@ -159,13 +159,6 @@ class DashboardIoTStatusBar extends StatelessWidget {
               color: AppColors.textPrimaryDark,
             ),
           ),
-          const Spacer(),
-          Text(
-            'Real-time',
-            style: AppTextStyles.caption.copyWith(
-              color: AppColors.success,
-            ),
-          ),
         ],
       ),
     );

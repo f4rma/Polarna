@@ -300,27 +300,14 @@ class _IncidentLogCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header: warehouse name + severity badge
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  incident.warehouseName,
-                  style: AppTextStyles.heading3.copyWith(
-                    color: scheme.onSurface,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              AppStatusBadge(
-                label: isCritical ? 'CRITICAL' : 'WARNING',
-                color: isCritical ? AppColors.error : AppColors.warning,
-                bgColor: isCritical
-                    ? AppColors.errorSoft
-                    : AppColors.warningSoft,
-              ),
-            ],
+          // Header: warehouse name (badge removed)
+          Text(
+            incident.warehouseName,
+            style: AppTextStyles.heading3.copyWith(
+              color: scheme.onSurface,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: AppSpacing.sm),
           // Temperature info

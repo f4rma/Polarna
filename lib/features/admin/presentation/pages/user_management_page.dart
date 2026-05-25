@@ -213,6 +213,7 @@ class _RoleBadge extends StatelessWidget {
       label: label,
       color: color,
       bgColor: bgColor,
+      outlined: true,
     );
   }
 }

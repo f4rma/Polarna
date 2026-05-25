@@ -136,6 +136,7 @@ class _AccountTile extends StatelessWidget {
             bgColor: isUmkm
                 ? const Color(0xFFDCE5F0)
                 : const Color(0xFFCFF4FA),
+            outlined: true,
           ),
         ],
       ),

@@ -110,6 +110,7 @@ class AppStatusBadge extends StatelessWidget {
     required this.bgColor,
     this.leadingIcon,
     this.dot = false,
+    this.outlined = false,
   });
 
   final String label;
@@ -119,6 +120,10 @@ class AppStatusBadge extends StatelessWidget {
 
   /// When `true`, renders a small filled dot instead of [leadingIcon].
   final bool dot;
+
+  /// When `true`, renders with transparent background and colored border
+  /// (lebih profesional untuk role badge).
+  final bool outlined;
 
   // --- Named factories — match the Figma component vocabulary -----------
 
@@ -233,8 +238,11 @@ class AppStatusBadge extends StatelessWidget {
         vertical: 6,
       ),
       decoration: BoxDecoration(
-        color: bgColor,
+        color: outlined ? Colors.transparent : bgColor,
         borderRadius: BorderRadius.circular(AppRadius.pill),
+        border: outlined
+            ? Border.all(color: color.withValues(alpha: 0.4), width: 1)
+            : null,
       ),
       child: Row(mainAxisSize: MainAxisSize.min, children: children),
     );

@@ -131,6 +131,7 @@ class _ProfileHeader extends StatelessWidget {
           label: 'MITRA',
           color: AppColors.accent,
           bgColor: const Color(0xFFCFF4FA),
+          outlined: true,
         ),
       ],
     );

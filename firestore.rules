@@ -1,0 +1,46 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users — hanya bisa baca/tulis dokumen sendiri
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Warehouses — Mitra bisa create/update miliknya, semua user login bisa read
+    // UMKM bisa update remainingCapacity saat booking
+    match /warehouses/{warehouseId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null
+        && resource.data.mitraId == request.auth.uid;
+    }
+
+    // Bookings — user login bisa create, baca miliknya
+    match /bookings/{bookingId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // Telemetry — Cloud Functions write (admin SDK bypass), user login bisa read
+    match /telemetry/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Incident logs — Cloud Functions write, user login bisa read
+    match /incident_logs/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Notifications
+    match /notifications/{docId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+    }
+  }
+}

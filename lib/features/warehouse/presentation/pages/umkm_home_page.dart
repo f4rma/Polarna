@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/route_constants.dart';
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -77,11 +78,11 @@ class _UmkmHomePageState extends ConsumerState<UmkmHomePage> {
               _QuickActions(
                 onSearchTap: () => context.go(RouteConstants.umkmSearch),
                 onBookingsTap: () => context.go(RouteConstants.umkmBookings),
-              ),
+              ).fadeSlideIn(delay: 80.msDelay),
               const SizedBox(height: AppSpacing.xxl),
 
               // Active booking carousel section
-              const _ActiveBookingCarousel(),
+              const _ActiveBookingCarousel().fadeSlideIn(delay: 160.msDelay),
               const SizedBox(height: AppSpacing.xxl),
 
               // Gudang tersedia
@@ -120,14 +121,16 @@ class _UmkmHomePageState extends ConsumerState<UmkmHomePage> {
                   onSearch: () => context.go(RouteConstants.umkmSearch),
                 )
               else
-                ...warehouseState.warehouses.take(3).map(
-                      (w) => Padding(
+                ...warehouseState.warehouses.take(3).toList().asMap().entries.map(
+                      (entry) => Padding(
                         padding: const EdgeInsets.only(bottom: AppSpacing.md),
                         child: WarehouseCardWidget(
-                          warehouse: w,
+                          warehouse: entry.value,
                           onTap: () => context.push(
-                            RouteConstants.warehouseDetailPath(w.id),
+                            RouteConstants.warehouseDetailPath(entry.value.id),
                           ),
+                        ).fadeSlideIn(
+                          delay: AppAnim.staggerDelay(entry.key),
                         ),
                       ),
                     ),

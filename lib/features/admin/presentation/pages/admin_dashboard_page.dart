@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/app_constants.dart';
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -117,31 +118,32 @@ class _AdminDashboardPageState extends ConsumerState<AdminDashboardPage> {
               label: 'Total Pengguna',
               value: '${summary?.totalUsers ?? 0}',
               color: AppColors.info,
-            ),
+            ).fadeSlideIn(delay: AppAnim.staggerDelay(0)),
             _StatCard(
               icon: Icons.warehouse,
               label: 'Gudang Aktif',
               value: '${summary?.activeWarehouses ?? 0}',
               color: AppColors.success,
-            ),
+            ).fadeSlideIn(delay: AppAnim.staggerDelay(1)),
             _StatCard(
               icon: Icons.receipt_long,
               label: 'Transaksi Aktif',
               value: '${summary?.activeTransactions ?? 0}',
               color: AppColors.accent,
-            ),
+            ).fadeSlideIn(delay: AppAnim.staggerDelay(2)),
             _StatCard(
               icon: Icons.show_chart,
               label: 'GMV (Total Transaksi)',
               value: currencyFormat.format(summary?.grossMerchandiseValue ?? 0),
               color: AppColors.warning,
-            ),
+            ).fadeSlideIn(delay: AppAnim.staggerDelay(3)),
           ],
         ),
         const SizedBox(height: AppSpacing.xxl),
 
         // Revenue breakdown card
-        _RevenueBreakdownCard(summary: summary),
+        _RevenueBreakdownCard(summary: summary)
+            .fadeSlideIn(delay: AppAnim.staggerDelay(4)),
       ],
     );
   }

@@ -103,7 +103,7 @@ class _AccountTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final isUmkm = account.role == 'umkm';
+    final badge = _roleBadge(account.role);
 
     return ListTile(
       leading: CircleAvatar(
@@ -131,11 +131,9 @@ class _AccountTile extends StatelessWidget {
           ),
           const SizedBox(width: AppSpacing.sm),
           AppStatusBadge(
-            label: isUmkm ? 'UMKM' : 'MITRA',
-            color: isUmkm ? const Color(0xFF5B8FB9) : AppColors.accent,
-            bgColor: isUmkm
-                ? const Color(0xFFDCE5F0)
-                : const Color(0xFFCFF4FA),
+            label: badge.label,
+            color: badge.color,
+            bgColor: badge.bgColor,
             outlined: true,
           ),
         ],
@@ -149,5 +147,30 @@ class _AccountTile extends StatelessWidget {
           : const Icon(Icons.chevron_right, size: 20),
       onTap: isSwitching ? null : onTap,
     );
+  }
+
+  /// Maps a stored role string to its display badge.
+  ({String label, Color color, Color bgColor}) _roleBadge(String role) {
+    switch (role) {
+      case 'umkm':
+        return (
+          label: 'UMKM',
+          color: const Color(0xFF5B8FB9),
+          bgColor: const Color(0xFFDCE5F0),
+        );
+      case 'admin':
+        return (
+          label: 'ADMIN',
+          color: const Color.fromARGB(255, 166, 201, 39),
+          bgColor: AppColors.infoSoft,
+        );
+      case 'mitra':
+      default:
+        return (
+          label: 'MITRA',
+          color: AppColors.accent,
+          bgColor: const Color(0xFFCFF4FA),
+        );
+    }
   }
 }

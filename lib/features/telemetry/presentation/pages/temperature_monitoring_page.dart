@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../providers/telemetry_provider.dart';
@@ -56,7 +57,8 @@ class TemperatureMonitoringPage extends ConsumerWidget {
                   const SizedBox(height: AppSpacing.lg),
 
                 // Stat cards row
-                _StatCardsRow(state: state, threshold: threshold),
+                _StatCardsRow(state: state, threshold: threshold)
+                    .fadeSlideIn(),
                 const SizedBox(height: AppSpacing.xxl),
 
                 // Time range selector

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/route_constants.dart';
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -30,7 +31,7 @@ class MitraProfilePage extends ConsumerWidget {
           padding: const EdgeInsets.all(AppSpacing.lg),
           children: [
             // Avatar + name section
-            _ProfileHeader(user: user),
+            _ProfileHeader(user: user).fadeScaleIn(),
             const SizedBox(height: AppSpacing.xxl),
 
             // Menu items

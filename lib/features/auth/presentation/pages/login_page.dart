@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/route_constants.dart';
 import '../../../../core/errors/failures.dart';
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_form_primitives.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
@@ -102,7 +103,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     const SizedBox(height: AppSpacing.lg),
                   ],
                   const SizedBox(height: AppSpacing.xl),
-                  const _Logo(),
+                  const _Logo().fadeScaleIn(),
                   const SizedBox(height: AppSpacing.xl),
                   Text(
                     'Selamat Datang',
@@ -110,7 +111,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     style: AppTextStyles.heading1.copyWith(
                       color: AppColors.primary,
                     ),
-                  ),
+                  ).fadeSlideIn(delay: 100.msDelay),
                   const SizedBox(height: AppSpacing.sm),
                   Text(
                     'Masuk untuk mengelola logistik cold chain Anda',
@@ -118,7 +119,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     style: AppTextStyles.bodyRegular.copyWith(
                       color: AppColors.textSecondaryLight,
                     ),
-                  ),
+                  ).fadeSlideIn(delay: 180.msDelay),
                   const SizedBox(height: AppSpacing.xxl),
                   AppTextInput(
                     controller: _emailCtrl,
@@ -133,7 +134,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       final r = Validators.validateEmail(v);
                       return r.isValid ? null : r.errorMessage;
                     },
-                  ),
+                  ).fadeSlideIn(delay: 260.msDelay),
                   const SizedBox(height: AppSpacing.lg),
                   AppTextInput(
                     controller: _passwordCtrl,
@@ -158,7 +159,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       }
                       return null;
                     },
-                  ),
+                  ).fadeSlideIn(delay: 320.msDelay),
                   const SizedBox(height: AppSpacing.sm),
                   Align(
                     alignment: Alignment.centerRight,
@@ -180,7 +181,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     label: 'Masuk',
                     onPressed: _submit,
                     isLoading: _submitting,
-                  ),
+                  ).fadeSlideIn(delay: 380.msDelay),
                   const SizedBox(height: AppSpacing.xl),
                   const _Divider(),
                   const SizedBox(height: AppSpacing.xl),

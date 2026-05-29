@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -38,7 +39,8 @@ class MitraDashboardPage extends ConsumerWidget {
               const SizedBox(height: AppSpacing.xxl),
               summaryAsync.when(
                 data: (summary) =>
-                    DashboardStatCardsGrid(summary: summary),
+                    DashboardStatCardsGrid(summary: summary)
+                        .fadeSlideIn(delay: 80.msDelay),
                 loading: () => const SizedBox(
                   height: 180,
                   child: Center(child: CircularProgressIndicator()),
@@ -56,7 +58,7 @@ class MitraDashboardPage extends ConsumerWidget {
               const SizedBox(height: AppSpacing.xxl),
               _ActiveTransactionsSection(
                 transactionsAsync: transactionsAsync,
-              ),
+              ).fadeSlideIn(delay: 160.msDelay),
             ],
           ),
         ),

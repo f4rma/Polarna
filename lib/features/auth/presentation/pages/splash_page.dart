@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
 
@@ -20,7 +21,7 @@ class SplashPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              const _SplashLogo(),
+              const _SplashLogo().fadeScaleIn(),
               const SizedBox(height: AppSpacing.xxl),
               Text(
                 'Polarna',
@@ -28,7 +29,7 @@ class SplashPage extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 32,
                 ),
-              ),
+              ).fadeSlideIn(delay: 150.msDelay),
               const SizedBox(height: AppSpacing.sm),
               Text(
                 'COLD CHAIN PILIHANMU',
@@ -36,7 +37,7 @@ class SplashPage extends StatelessWidget {
                   color: AppColors.accent,
                   letterSpacing: 1.5,
                 ),
-              ),
+              ).fadeSlideIn(delay: 250.msDelay),
               const Spacer(),
               const _LoadingBar(),
               const SizedBox(height: AppSpacing.lg),

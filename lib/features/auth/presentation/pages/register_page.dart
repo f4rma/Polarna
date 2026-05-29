@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/route_constants.dart';
 import '../../../../core/errors/failures.dart';
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_form_primitives.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
@@ -165,14 +166,14 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     style: AppTextStyles.heading1.copyWith(
                       color: AppColors.primary,
                     ),
-                  ),
+                  ).fadeSlideIn(),
                   const SizedBox(height: AppSpacing.xs),
                   Text(
                     'Gabung sekarang untuk mulai mengelola logistik',
                     style: AppTextStyles.bodyRegular.copyWith(
                       color: AppColors.textSecondaryLight,
                     ),
-                  ),
+                  ).fadeSlideIn(delay: 80.msDelay),
                   const SizedBox(height: AppSpacing.xl),
                   AppSegmentedToggle<UserRole>(
                     values: const [UserRole.umkm, UserRole.mitra],

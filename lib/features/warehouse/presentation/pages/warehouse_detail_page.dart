@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/theme/app_animations.dart';
 import '../../../../core/theme/app_form_primitives.dart';
 import '../../../../core/theme/app_primitives.dart';
 import '../../../../core/theme/app_tokens.dart';
@@ -116,7 +117,8 @@ class _WarehouseDetailPageState extends ConsumerState<WarehouseDetailPage> {
                   const SizedBox(height: AppSpacing.xxl),
 
                   // Stat cards 2x2
-                  _StatCardsGrid(warehouse: warehouse),
+                  _StatCardsGrid(warehouse: warehouse)
+                      .fadeSlideIn(delay: 80.msDelay),
                   const SizedBox(height: AppSpacing.xxl),
 
                   // Fasilitas
@@ -127,7 +129,7 @@ class _WarehouseDetailPageState extends ConsumerState<WarehouseDetailPage> {
                     ),
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  _FacilitiesList(),
+                  _FacilitiesList().fadeSlideIn(delay: 160.msDelay),
                 ],
               ),
             ),

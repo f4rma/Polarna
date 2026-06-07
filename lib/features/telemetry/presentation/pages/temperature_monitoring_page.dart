@@ -214,7 +214,7 @@ class _StatCardsRow extends StatelessWidget {
                 ? AppColors.error.withValues(alpha: 0.15)
                 : const Color(0xFF1A2F4A), // blue card
             accentColor: state.isBreach ? AppColors.error : AppColors.info,
-            subtitle: state.isBreach ? 'Bahaya! Panas' : null,
+            subtitle: state.isBreach ? 'Suhu terlalu tinggi' : null,
           ),
         ),
         const SizedBox(width: AppSpacing.md),
